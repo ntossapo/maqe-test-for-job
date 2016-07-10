@@ -12,7 +12,7 @@ func main(){
 
 	for i := 0 ; i < 250 ; i++{
 		h.Write([]byte(string(i)))
-		codes = append(codes, fmt.Sprintf("%x", h.Sum(nil) )[:8]);
+		codes = append(codes, fmt.Sprintf("MQ%x", h.Sum(nil) )[:10]);
 	}
 
 	
