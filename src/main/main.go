@@ -3,12 +3,19 @@ package main
 import(
 	"fmt"
 	"crypto/sha1"
+	"os"
+	"log"
 )
 
 func main(){
 	var codes []string
 
 	h := sha1.New()
+	fo, err := os.Create("Section2")
+	if err != nil{
+		log.Fatal(err)
+		os.Exit(2)
+	}
 
 	for i := 0 ; i < 250 ; i++{
 		h.Write([]byte(string(i)))
@@ -17,7 +24,10 @@ func main(){
 
 	
 	for _,code := range codes{
-		fmt.Println(code);
+		fmt.Println(code)
+		fo.Write([]byte(code + "\n"))
 	}
+
+	fo.Close();
 
 }
