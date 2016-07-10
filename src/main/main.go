@@ -11,7 +11,7 @@ func main(){
 	var codes []string
 
 	h := sha1.New()
-	fo, err := os.Create("Section2")
+	fo, err := os.Create("section2")
 	if err != nil{
 		log.Fatal(err)
 		os.Exit(2)
